@@ -1,0 +1,5 @@
+{
+  "watch": ["src", "views", "partials"],
+  "ext": "ts, ejs",
+  "exec": "ts-node src/app.ts"
+}

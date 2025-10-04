@@ -1,0 +1,46 @@
+{
+  "name": "dnd-prerolls",
+  "version": "0.0.1",
+  "description": "DND Damage preroll generator",
+  "main": "dist/src/app.js",
+  "scripts": {
+    "watch": "nodemon",
+    "watch:dev": "nodemon --inspect=0.0.0.0:9229",
+    "build": "tsc",
+    "start": "start",
+    "lint": "lint",
+    "prettier:check": "prettier . --check",
+    "prettier:fix": "prettier . --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/randonia/ttrpg-preroll-calculator.git"
+  },
+  "keywords": [
+    "dnd"
+  ],
+  "author": "Ryan Andonian",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/randonia/ttrpg-preroll-calculator/issues"
+  },
+  "homepage": "https://github.com/randonia/ttrpg-preroll-calculator",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-ejs-layouts": "^2.5.1",
+    "morgan": "^1.10.1"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.5",
+    "@types/express": "^5.0.3",
+    "@types/express-ejs-layouts": "^2.5.4",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^24.6.2",
+    "eslint": "^9.37.0",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}

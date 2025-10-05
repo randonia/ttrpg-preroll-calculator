@@ -5,7 +5,7 @@ import { default as apiRouter } from "./routers/api";
 import { NUM_PREROLLS, preroll, PrerollResult } from "./constants";
 import path from "path";
 
-const port = 3000;
+const { PORT = 3000} = process.env;
 const app = express();
 
 app.use(morgan("combined"));
@@ -47,6 +47,6 @@ app.get("/preroll/:rolls", (req: Request, res: Response) => {
   res.render("roll_result", { roll_result: result });
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`ttrpg-preroll-calculator listening on port ${PORT}`);
 });

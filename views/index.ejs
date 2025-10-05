@@ -1,9 +1,11 @@
-Fill out your query here and click Generate
+Fill out your preroll query here and click Generate.
 <form action="/api/preroll" method="get">
   <div>
     <label>Preroll Configuration</label>
     <input id="rolls" type="text" name="rolls" value="3d6 4d6 2d12" style="width: 400px"/>
   </div>
+  <code>Dice Format: XdY, where X is the number and Y is the type</code>
+  <div>To add multiple of the same type (eg: multiple D6 rolls), manually type them in, eg: <code>4d6 5d6</code></div>
   <div>
     <label for="count">Number of rolls</label>
     <input
@@ -52,7 +54,7 @@ Fill out your query here and click Generate
   <% }) %>
   </div>
 </div>
-<div>
+<div style="padding-top: 5px;">
   <p>Example inputs:</p>
   <div><code>8d6</code> (D&D 5e - Fireball)</div>
   <div>
@@ -60,4 +62,8 @@ Fill out your query here and click Generate
     flat additions)
   </div>
   <div><code>3d6 4d6 8d8 2d12</code> a whole mess of things</div>
+</div>
+<div>
+  <h3>Why?</h3>
+  <p>Sometimes it sucks to add up 20 different math rocks. With this you can print out a little pre-roll sheet and just cross off used pre-rolls as you consume them.</p>
 </div>

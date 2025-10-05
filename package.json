@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "nodemon",
     "watch:dev": "nodemon --inspect=0.0.0.0:9229",
-    "build": "tsc",
+    "build": "tsc && cp -r public dist/",
     "start": "start",
     "lint": "lint",
     "prettier:check": "prettier . --check",

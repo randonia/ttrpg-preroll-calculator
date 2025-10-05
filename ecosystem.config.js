@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'tablr',
+      name: 'ttrpg-preroller',
       script: './dist/app.js',
       instances: 1,
       exec_mode: 'fork',

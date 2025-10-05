@@ -1,1 +1,57 @@
-Hello!
+Fill out your query here and click Generate
+<form action="/api/preroll" method="get">
+  <div>
+    <label>Preroll Configuration</label>
+    <input id="rolls" type="text" name="rolls" value="3d6 4d6 2d12" style="width: 400px"/>
+  </div>
+  <div>
+    <label for="count">Number of rolls</label>
+    <input
+      id="count"
+      type="number"
+      name="number"
+      min="1"
+      max="2000"
+      value="<%= default_num_prerolls %>"
+    />
+  </div>
+  <input type="submit" value="Generate" />
+</form>
+<div>
+  <script>
+    function sortConfig() {
+      const btn = document.getElementById("rolls")
+      // TODO
+    }
+
+    function quickAddDie(dieSpec) {
+      const btn = document.getElementById("rolls")
+      const [_, dieType] = dieSpec.split("d");
+      // Do we have some already? Replace it if so
+      if ((matched = btn.value.match(new RegExp(`(\\d+d${dieType})`)))) {
+        console.log(matched);
+        const [num, dType] = matched[1].split("d").map(item => Number.parseInt(item))
+        btn.value = btn.value.replace(matched[1], `${num + 1}d${dType}`);
+      } else {
+        // Otherwise just append it
+        btn.value += ` ${dieSpec}`;
+      }
+
+      sortConfig();
+    }
+  </script>
+  <h3>Add Dice</h3>
+  <div> <% quickAdds.forEach((item) => { %>
+    <button onclick="quickAddDie('<%=item%>')">+<%=item%></button>
+  <% }) %>
+  </div>
+</div>
+<div>
+  <p>Example inputs:</p>
+  <div><code>8d6</code> (D&D 5e - Fireball)</div>
+  <div>
+    <code>2d4 4d4 8d4 10d4</code> (D&D 5e - All potions' rolls, don't forget the
+    flat additions)
+  </div>
+  <div><code>3d6 4d6 8d8 2d12</code> a whole mess of things</div>
+</div>

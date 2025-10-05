@@ -2,18 +2,82 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>My Portfolio</title>
-    <link rel="preload" href="/styles.css" as="style" />
-    <link rel="stylesheet" href="/styles.css" type="text/css" />
+    <link rel="preload" href="/OpenSans.woff" as="font" type="font/woff" />
+    <title>TTRPG Preroll Damage Calculator</title>
   </head>
   <style>
-    html {
-      background-color: #0f1a20;
+    :root {
+      --main-bg-color: #171a21;
+      --main-font-color: #f1e0c5;
+      --main-font-color-darkened: #ebd3ad;
     }
+
+    @font-face {
+      font-family: "OpenSans";
+      src: url("/OpenSans.woff");
+    }
+    /* RESET - stolen from https://www.joshwcomeau.com/css/custom-css-reset/ */
+    /* 1. Use a more-intuitive box-sizing model */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    /* 2. Remove default margin */
+    * {
+      margin: 0;
+    }
+
+    html {
+      background-color: var(--main-bg-color);
+      color: var(--main-font-color);
+      font-family: "OpenSans", "Arial";
+      display: block;
+      /* height: calc(100% - 4px); */
+      height: 100%;
+      width: 100%;
+      overflow-y: hidden;
+    }
+    body {
+      /* 3. Add accessible line-height */
+      line-height: 1.5;
+      /* 4. Improve text rendering */
+      -webkit-font-smoothing: antialiased;
+      height: calc(100%);
+      width: calc(100%);
+    }
+    .container {
+      height: calc(100%);
+      width: calc(100%);
+      display: grid;
+      grid-template-rows: 3em auto 25px;
+      grid-template-areas: "header" "main" "footer";
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+    .header {
+      grid-area: header;
+    }
+    .main {
+      grid-area: main;
+    }
+    .footer {
+      grid-area: footer;
+      font-size: smaller;
+      text-align: right;
+      padding-right: 1em;
+    }
+    a:visited {
+      color: var(--main-font-color-darkened);
+    }
+
   </style>
   <body class="page">
     <div class="container">
+      <%- include('../partials/header.ejs') %>
       <main class="main"><%- body %></main>
+      <%- include('../partials/footer.ejs') %>
     </div>
   </body>
 </html>

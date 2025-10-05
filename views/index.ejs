@@ -21,7 +21,13 @@ Fill out your query here and click Generate
   <script>
     function sortConfig() {
       const btn = document.getElementById("rolls")
-      // TODO
+      const sortedSpecs = btn.value.split(" ").sort((a, b) => {
+        // Sort by type (d4 < d100), then by Num if somehow someone put in two of the same types
+        const [aNum, aDType] = a.split("d")
+        const [bNum, bDType] = b.split("d")
+        return bDType - aDType || bNum - aNum;
+      });
+      btn.value = sortedSpecs.reverse().join(" ");
     }
 
     function quickAddDie(dieSpec) {
@@ -40,7 +46,7 @@ Fill out your query here and click Generate
       sortConfig();
     }
   </script>
-  <h3>Add Dice</h3>
+  <h3>Quick Add Dice</h3>
   <div> <% quickAdds.forEach((item) => { %>
     <button onclick="quickAddDie('<%=item%>')">+<%=item%></button>
   <% }) %>

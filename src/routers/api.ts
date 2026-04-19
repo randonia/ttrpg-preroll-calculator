@@ -4,7 +4,7 @@ import { NUM_PREROLLS, preroll, PrerollResult } from "../constants";
 const router = Router();
 
 function isValidSpec(value: string): boolean {
-  return value.match(/\d{1,2}d\d{1,3}/) != null;
+  return value.match(/^\d{1,2}d\d{1,3}(\+\d+)?$/) != null;
 }
 
 /**
@@ -19,7 +19,7 @@ router.get("/preroll", (req: Request, res: Response) => {
     return;
   }
   const result: PrerollResult[] = rolls
-    .split(/[\+\s]/)
+    .split(/\s+/)
     .filter(isValidSpec)
     .map<PrerollResult>((item: string) => {
       return {
